@@ -1,0 +1,43 @@
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+	xmlns:tiles="http://tiles.apache.org/tags-tiles"
+	xmlns:spring="http://www.springframework.org/tags"
+	version="2.0">
+
+	<jsp:output doctype-root-element="HTML" doctype-system="about:legacy-compat" />
+	<jsp:output omit-xml-declaration="true" />
+	<jsp:directive.page contentType="text/html;charset=UTF-8" />
+	<jsp:directive.page pageEncoding="UTF-8" />
+
+<head>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=8" />
+
+	<spring:message code="application.title" var="applicationTitle"/>
+	<title>${ applicationTitle }</title>
+
+	<spring:theme code="bootstrap.style" var="bootstrapStyle" />
+	<spring:url value="/${ bootstrapStyle }" var="bootstrapStyleUrl" />
+	<link rel="stylesheet" type="text/css" media="screen" href="${ bootstrapStyleUrl }" />
+
+	<spring:theme code="bootstrap.style.responsive" var="bootstrapStyleResponsive" />
+	<spring:url value="/${ bootstrapStyleResponsive }" var="bootstrapStyleResponsiveUrl" />
+	<link rel="stylesheet" type="text/css" media="screen" href="${ bootstrapStyleResponsiveUrl }" />
+
+	<spring:theme code="styleSheet" var="appStyle" />
+	<spring:url value="/${ appStyle }" var="appStyleUrl" />
+	<link rel="stylesheet" type="text/css" media="screen" href="${ appStyleUrl }" />
+
+</head>
+
+<body>
+
+	<tiles:insertAttribute name="top-menu" ignore="true" />
+
+	<tiles:insertAttribute name="body" />
+
+</body>
+
+</jsp:root>
